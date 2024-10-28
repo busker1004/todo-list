@@ -5,6 +5,12 @@
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "module": "ESNext",
     "skipLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@components/*": ["src/components/*"],
+      "@/*": ["src/*"],
+      "@appTypes/*": ["src/types/*"]
+    },
 
     /* Bundler mode */
     "moduleResolution": "Bundler",
@@ -24,5 +30,5 @@
     /* emotion */
     "jsxImportSource": "@emotion/react"
   },
-  "include": ["src"]
+  "include": ["src" ,"**/*.ts", "**/*.tsx"]
 }

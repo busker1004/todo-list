@@ -1,9 +1,10 @@
 import { useState } from 'react'
 
+import TodoItem from '@components/TodoItem'
+import AddTodo from '@components/AddTodo'
+
 import './App.css'
-import TodoItem from './components/Todo'
-import { TodoInterface } from './types/TodoType'
-import AddTodo from './components/AddTodo'
+import { TodoInterface } from '@appTypes/TodoType'
 
 function App() {
   const [todos, setTodos] = useState<TodoInterface[]>([{

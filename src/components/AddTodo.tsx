@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styled from "@emotion/styled"
 
-import { TodoInterface } from "../types/TodoType";
+import { TodoInterface } from "@appTypes/TodoType";
 
 interface AddTodoInterface {
     onAdd: (item: TodoInterface) => void
