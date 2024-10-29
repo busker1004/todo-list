@@ -1,45 +1,26 @@
-import { useState } from 'react'
+import { useReducer } from 'react'
 
 import TodoItem from '@components/TodoItem'
 import AddTodo from '@components/AddTodo'
 
-import './App.css'
 import { TodoInterface } from '@appTypes/TodoType'
 
+import { ADD_TASK, DELETE_TASK, todos as tasks, UPDATE_TASK } from './reducers/Task'
+import './App.css'
+
 function App() {
-  const [todos, setTodos] = useState<TodoInterface[]>([{
-    id: 0,
-    title: '장보기',
-    done: false,
-  }, {
-    id: 1,
-    title: '청소하기',
-    done: false,
-  }])
+  const [todos, dispatch] = useReducer(tasks, [])
 
   const onAdd = (item: TodoInterface) => {
-    setTodos([
-      ...todos,
-      item
-    ])
+    dispatch({type: ADD_TASK, item})
   }
 
   const onDelete = (item: TodoInterface) => {
-    setTodos(
-      todos.filter(todo => todo.id !== item.id)
-    )
+    dispatch({type: DELETE_TASK, item})
   }
 
   const onUpdate = (item: TodoInterface) => {
-    const newTodos = todos.map((todo) => {
-      if(todo.id !== item.id) return todo
-
-      return {
-        ...item,
-      }
-    })
-
-    setTodos(newTodos)
+    dispatch({type:UPDATE_TASK, item})
   }
 
   return (

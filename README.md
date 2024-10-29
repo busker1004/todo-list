@@ -12,3 +12,4 @@
 - [ ] Item Filtering (Active Complete)
 - [ ] Support Dark mode
 - [ ] Interactive
+- [ ] Make Pretty
