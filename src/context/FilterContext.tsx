@@ -1,9 +1,8 @@
-import { createContext, ReactNode, useState } from "react";
+import { createContext} from "react";
 
+export type filterType = 'all' | 'active' | 'complete';
 
-export type filterType = 'all' | 'active' | 'done';
-
-interface FilterContextInterface {
+export interface FilterContextInterface {
     filterMode: filterType
     changeFilterMode: (mode: filterType) => void
 };

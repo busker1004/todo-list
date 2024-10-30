@@ -9,7 +9,8 @@
     "paths": {
       "@components/*": ["src/components/*"],
       "@/*": ["src/*"],
-      "@appTypes/*": ["src/types/*"]
+      "@appTypes/*": ["src/types/*"],
+      "@context/*": ["src/context/*"]
     },
 
     /* Bundler mode */
