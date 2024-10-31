@@ -5,6 +5,7 @@ import App from './App.tsx'
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import { todos } from './reducers/Task.ts'
 import { Provider } from 'react-redux'
+import { FilterProvider } from './context/FilterProvider.tsx'
 
 const rootReducer = combineReducers([
   todos
@@ -20,7 +21,9 @@ export type RootState = ReturnType<typeof store.getState>;
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <Provider store={store}>
-      <App />
+      <FilterProvider>
+        <App />
+      </FilterProvider>
     </Provider>
   </StrictMode>,
 )
