@@ -12,7 +12,6 @@ import Header from '@components/Header'
 import './App.css'
 import { useFilter } from './hooks/useFilter'
 
-
 function App() {
   const [todos, dispatch] = useReducer(tasks, [])
   const {filterMode} = useFilter()

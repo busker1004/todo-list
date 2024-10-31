@@ -8,9 +8,8 @@ import { useState } from "react";
 const filters: filterType[] = ['all', 'active', 'complete']
 
 export default function Header() {
-    const {filterMode, changeFilterMode} = useFilter()
+    const {changeFilterMode} = useFilter()
     const [activeIndex, setActiveIndex] = useState(0)
-
     return (
         <Wrapper>
             <DisplayMode>
@@ -20,7 +19,8 @@ export default function Header() {
                 {filters.map((f) => {
                     return (
                         <Filter 
-                            isActive={activeIndex === filters.indexOf(filterMode)} 
+                            key={f}
+                            isActive={activeIndex === filters.indexOf(f)} 
                             onClick={() => {
                                 setActiveIndex(filters.indexOf(f))
                                 changeFilterMode(f)

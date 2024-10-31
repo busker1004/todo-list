@@ -1,4 +1,4 @@
-import { MouseEvent } from "react";
+import { ChangeEvent } from "react";
 import { HiOutlineTrash } from "react-icons/hi";
 
 import styled from "@emotion/styled";
@@ -12,7 +12,7 @@ interface TodoItemInterface {
 }
 
 export default function TodoItem({todo, onDelete, onUpdate}: TodoItemInterface) {
-    const handleDone = (e: MouseEvent<HTMLInputElement, globalThis.MouseEvent>) => {
+    const handleDone = (e: ChangeEvent<HTMLInputElement>) => {
         const newItem = {...todo, done: e.currentTarget.checked}
         
         onUpdate(newItem)
@@ -20,7 +20,7 @@ export default function TodoItem({todo, onDelete, onUpdate}: TodoItemInterface) 
 
     return (
         <Wrapper>
-            <input type='checkbox' id={`${todo.id}+${todo.title}`} onClick={handleDone} checked={todo.done}/>
+            <input type='checkbox' id={`${todo.id}+${todo.title}`} onChange={handleDone} checked={todo.done}/>
             <Title checked={todo.done} htmlFor={`${todo.id}+${todo.title}`}>{todo.title}</Title>
             <TrashIcon><HiOutlineTrash width='100%' height='100%' onClick={() => onDelete(todo)}/></TrashIcon>
         </Wrapper>
